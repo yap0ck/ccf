@@ -29,16 +29,32 @@ public class BreedServiceImpl implements BreedService {
         breedRepository.save(breed);
     }
 
+    /**
+     * Retrieves a breed by its ID.
+     *
+     * @param id The ID of the breed to retrieve.
+     * @return The breed corresponding to the given ID.
+     */
     @Override
     public Breed getBreedById(Long id) {
         return breedRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("la race n'a pas été trouvée"));
     }
 
+    /**
+     * Retrieves all breeds available in the system.
+     *
+     * @return List of Breed objects representing all breeds in the system.
+     */
     @Override
     public List<Breed> getAllBreeds() {
         return breedRepository.findAll();
     }
 
+    /**
+     * Deletes a breed from the system by its ID.
+     *
+     * @param id The ID of the breed to delete.
+     */
     @Override
     public void delete(Long id) {
         breedRepository.deleteById(id);
